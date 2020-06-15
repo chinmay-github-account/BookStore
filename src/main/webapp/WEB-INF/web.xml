@@ -6,21 +6,22 @@
     id="WebApp_ID" version="3.1">
     <display-name>Books Management Web Application</display-name>
  
-    <context-param>
-        <param-name>jdbcURL</param-name> 
-        <param-value>jdbc:mysql://azure-mysql-database.mysql.database.azure.com:3306/demo?serverTimezone=UTC</param-value>
-    </context-param>
- 
-    <context-param>
-        <param-name>jdbcUsername</param-name>
-        <param-value>azureMySql@azure-mysql-database</param-value>
-    </context-param>
- 
-    <context-param>
-        <param-name>jdbcPassword</param-name>
-        <param-value>Welcome123</param-value>
-    </context-param>
- 
+	   <resource-ref>
+		<description>MySQL Datasource Connection</description>
+		<res-ref-name>jdbc/MySql</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	  </resource-ref>
+	  
+	  <!--
+	  <resource-ref>
+		<description>Microsoft SQL Datasource Connection</description>
+		<res-ref-name>jdbc/MicrosoftSql</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	  </resource-ref>
+ 	  -->
+ 	
     <servlet>
         <servlet-name>ControllerServlet</servlet-name>
         <servlet-class>net.codejava.javaee.bookstore.ControllerServlet</servlet-class>
